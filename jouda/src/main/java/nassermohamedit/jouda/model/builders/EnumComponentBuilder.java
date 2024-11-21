@@ -20,6 +20,7 @@ public class EnumComponentBuilder extends TypeComponentBuilder<EnumComponent> {
 
     @Override
     public void doBuild() {
+        setName();
         buildEnclosingPackageModule();
         buildModifiers();
         buildFields();

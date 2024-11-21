@@ -34,6 +34,7 @@ public abstract class TypeComponentBuilder<T extends TypeComponent> extends Abst
     }
 
     protected void doBuild() {
+        setName();
         buildEnclosingPackageModule();
         buildTypeParameters();
         buildModifiers();
@@ -48,6 +49,10 @@ public abstract class TypeComponentBuilder<T extends TypeComponent> extends Abst
     }
 
     protected abstract T getComponent();
+
+    protected void setName() {
+        comp.setName(e.getSimpleName().toString());
+    }
 
     protected void buildEnclosingPackageModule() {
         Element enclosing = null, pack, module;
