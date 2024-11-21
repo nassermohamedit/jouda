@@ -1,6 +1,8 @@
 package nassermohamedit.jouda.model;
 
 
+import java.util.Objects;
+
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlValue;
@@ -29,5 +31,23 @@ public class Name {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null) return false;
+        if (o instanceof Name n)
+            return name.equals(n.name);
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+       return Objects.hashCode("Name:" + name); 
     }
 }
