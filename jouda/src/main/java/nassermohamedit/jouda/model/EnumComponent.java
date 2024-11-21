@@ -21,7 +21,7 @@ public final class EnumComponent implements TypeComponent {
     private Name enclosingType;
 
     @XmlElement(name = "modifier")
-    private List<Modifier> modifiers;
+    private Modifiers modifiers;
 
     @XmlElement(name = "annotation")
     private List<Name> annotations;
@@ -73,12 +73,12 @@ public final class EnumComponent implements TypeComponent {
         return enclosingType;
     }
 
-    public List<Modifier> getModifiers() {
+    public Modifiers getModifiers() {
         return modifiers;
     }
 
     @Override
-    public void setModifiers(List<Modifier> modifiers) {
+    public void setModifiers(Modifiers modifiers) {
         this.modifiers = modifiers;
     }
 

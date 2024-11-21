@@ -38,5 +38,8 @@ public enum Modifier {
     SEALED,
 
     @XmlEnumValue("non-sealed")
-    NON_SEALED;
+    NON_SEALED,
+
+    @XmlEnumValue("native")
+    NATIVE;
 }

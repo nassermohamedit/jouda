@@ -14,7 +14,7 @@ public class FieldComponent implements Component, HasModifiers, Annotatable, Doc
     private String name;
 
     @XmlElement(name = "modifier")
-    private List<Modifier> modifiers;
+    private Modifiers modifiers;
 
     @XmlElement(required = true)
     private Name type;
@@ -37,11 +37,11 @@ public class FieldComponent implements Component, HasModifiers, Annotatable, Doc
         this.name = name;
     }
 
-    public List<Modifier> getModifiers() {
+    public Modifiers getModifiers() {
         return modifiers;
     }
 
-    public void setModifiers(List<Modifier> modifiers) {
+    public void setModifiers(Modifiers modifiers) {
         this.modifiers = modifiers;
     }
 

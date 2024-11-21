@@ -10,6 +10,7 @@ import jakarta.xml.bind.annotation.XmlAccessorOrder;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.XmlValue;
 
 
 @XmlAccessorOrder(XmlAccessOrder.UNDEFINED)
@@ -28,8 +29,7 @@ public final class ClassComponent implements TypeComponent {
     @XmlElement(name = "enclosing-type")
     private Name enclosingType;
     
-    @XmlElement(name = "modifier")
-    private List<Modifier> modifiers;
+    private Modifiers modifiers;
 
     @XmlElement(name = "type-parameter")
     private List<TypeParameter> typeParameters;
@@ -112,11 +112,11 @@ public final class ClassComponent implements TypeComponent {
         return enclosingType;
     }
 
-    public List<Modifier> getModifiers() {
+    public Modifiers getModifiers() {
         return modifiers;
     }
 
-    public void setModifiers(List<Modifier> modifiers) {
+    public void setModifiers(Modifiers modifiers) {
         this.modifiers = modifiers;
     }
 

@@ -28,7 +28,7 @@ public final class RecordComponent implements TypeComponent {
     private Name enclosingType;
     
     @XmlElement(name = "modifier")
-    private List<Modifier> modifiers;
+    private Modifiers modifiers;
 
     @XmlElement(name = "canonical-constructor")
     private ConstructorComponent canonical; 
@@ -89,11 +89,11 @@ public final class RecordComponent implements TypeComponent {
         this.backage = backage;
     }
 
-    public List<Modifier> getModifiers() {
+    public Modifiers getModifiers() {
         return modifiers;
     }
 
-    public void setModifiers(List<Modifier> modifiers) {
+    public void setModifiers(Modifiers modifiers) {
         this.modifiers = modifiers;
     }
 

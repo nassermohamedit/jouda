@@ -3,7 +3,6 @@ package nassermohamedit.jouda.util;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 import javax.lang.model.element.AnnotationMirror;
@@ -31,6 +30,7 @@ import nassermohamedit.jouda.model.ExecutableComponent;
 import nassermohamedit.jouda.model.FieldComponent;
 import nassermohamedit.jouda.model.HasModifiers;
 import nassermohamedit.jouda.model.MethodComponent;
+import nassermohamedit.jouda.model.Modifiers;
 import nassermohamedit.jouda.model.Name;
 import nassermohamedit.jouda.model.Parameter;
 import nassermohamedit.jouda.model.TypeComponent;
@@ -76,10 +76,12 @@ public class BuildUtils {
         comp.setFields(fields.stream().map(this::buildField).toList());
     }
 
-    public void buildModiferPart(Element e, TypeComponent comp) {
-        comp.setModifiers(e.getModifiers().stream()
+    public void setModifiers(Element e, HasModifiers comp) {
+        Modifiers modifiers = new Modifiers();
+        e.getModifiers().stream()
                 .map(this::toModifier)
-                .toList());
+                .forEach(modifiers::set);
+        comp.setModifiers(modifiers);
     }
     
     public void buildDocPart(Element e, Documentable comp) {
@@ -146,12 +148,6 @@ public class BuildUtils {
         p.setTypeParameters(tps.stream().map(this::toTypeParameter).toList());
     }
 
-    public void setModifiers(Element e, HasModifiers c) {
-        Set<Modifier> modifiers = e.getModifiers();
-        if (modifiers.isEmpty()) return;
-        c.setModifiers(modifiers.stream().map(this::toModifier).toList());
-        
-    }
 
     public void setParameters(ExecutableElement ee, ExecutableComponent ec) {
         List<? extends VariableElement> params = ee.getParameters();

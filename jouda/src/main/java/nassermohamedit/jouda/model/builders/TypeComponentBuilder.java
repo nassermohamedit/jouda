@@ -36,6 +36,7 @@ public abstract class TypeComponentBuilder<T extends TypeComponent> extends Abst
     protected void doBuild() {
         buildEnclosingPackageModule();
         buildTypeParameters();
+        buildModifiers();
         buildSuperClass();
         buildInterfaces();
         buildPermittedSubtypes();
@@ -66,7 +67,7 @@ public abstract class TypeComponentBuilder<T extends TypeComponent> extends Abst
     }
 
     protected void buildModifiers() {
-        buildUtils.buildModiferPart(e, comp); 
+        buildUtils.setModifiers(e, comp); 
     }
 
     protected void buildTypeParameters() {

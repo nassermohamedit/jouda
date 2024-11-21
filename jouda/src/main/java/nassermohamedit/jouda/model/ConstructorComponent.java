@@ -11,8 +11,7 @@ import jakarta.xml.bind.annotation.XmlElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ConstructorComponent implements ExecutableComponent {
 
-    @XmlElement(name = "modifier")
-    private List<Modifier> modifiers;
+    private Modifiers modifiers;
 
     @XmlElement(name = "type-parameter")
     private List<TypeParameter> typeParameters;
@@ -44,11 +43,11 @@ public class ConstructorComponent implements ExecutableComponent {
         throw new UnsupportedOperationException();
     }
 
-    public List<Modifier> getModifiers() {
+    public Modifiers getModifiers() {
         return modifiers;
     }
 
-    public void setModifiers(List<Modifier> modifiers) {
+    public void setModifiers(Modifiers modifiers) {
         this.modifiers = modifiers;
     }
 

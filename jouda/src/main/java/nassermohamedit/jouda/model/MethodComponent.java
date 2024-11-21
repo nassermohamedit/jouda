@@ -15,7 +15,7 @@ public class MethodComponent implements ExecutableComponent {
     private String name;
 
     @XmlElement(name = "modifier")
-    private List<Modifier> modifiers;
+    private Modifiers modifiers;
 
     @XmlElement(required = true)
     private Name returnType;
@@ -47,11 +47,11 @@ public class MethodComponent implements ExecutableComponent {
         this.name = name;
     }
 
-    public List<Modifier> getModifiers() {
+    public Modifiers getModifiers() {
         return modifiers;
     }
 
-    public void setModifiers(List<Modifier> modifiers) {
+    public void setModifiers(Modifiers modifiers) {
         this.modifiers = modifiers;
     }
 

@@ -24,7 +24,7 @@ public final class InterfaceComponent implements TypeComponent {
     private Name enclosingType;
     
     @XmlElement(name = "modifier")
-    private List<Modifier> modifiers;
+    private Modifiers modifiers;
     
     @XmlElement(name = "interface")
     private List<Name> interfaces;
@@ -98,11 +98,11 @@ public final class InterfaceComponent implements TypeComponent {
     }
 
 
-    public List<Modifier> getModifiers() {
+    public Modifiers getModifiers() {
         return modifiers;
     }
 
-    public void setModifiers(List<Modifier> modifiers) {
+    public void setModifiers(Modifiers modifiers) {
         this.modifiers = modifiers;
     }
 
